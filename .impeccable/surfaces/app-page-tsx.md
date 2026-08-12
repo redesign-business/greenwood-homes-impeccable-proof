@@ -10,7 +10,7 @@ related_targets: ["app/globals.css","app/layout.tsx"]
 - Scope: `app/page.tsx`, Persuade mode.
 - Audience: prospective custom-home and residential-construction clients evaluating Greenwood Homes.
 - Job: establish desire and trust, then begin a project conversation through the verified contact destination.
-- Proof: use all seven proof types in `proof.md`; lead with established scale, licensing, completed work, craftsmanship, and client trust.
+- Proof: give each proof type its own concrete section or artifact. Show exact licenses, completed work, exact awards, a full verified testimonial, the service sequence, named team members, and collaboration through the process; do not summarize these into a generic proof component.
 - Constraints: `proof.md` is factual authority; `public/images/manifest.json` is visual authority; no invented claims, awards, testimonials, services, locations, or destinations; no sidebar navigation.
 - Direction: Builder’s Pattern Book — evidence organized as tactile vellum construction plates over real completed work.
 - Approved comp: `.impeccable/mocks/proof-cabinet.png` (The Proof Cabinet).
@@ -36,7 +36,9 @@ related_targets: ["app/globals.css","app/layout.tsx"]
 | Seven-part proof ledger | Semantic HTML/CSS | All proof types remain simultaneously visible in a spacious ruled section below the testimony. |
 | Primary action | Semantic link/CSS | Fired-clay pinned tab at the thesis/image seam; links to verified contact page. |
 | Client quotation sheet | Semantic HTML/CSS | Exact verified quote fragment from `proof.md`; full testimonial source linked. |
+| License docket | Semantic HTML/CSS | Building-since date and all five exact contractor license numbers shown as credentials, not summarized. |
 | Portfolio strip | Existing rasters | Three verified project images and names, linked to their verified project destinations. |
+| Award record | Supplied Tahoe Quarterly mark + semantic HTML/CSS | Seven exact honors with years, names, and verified destinations where available. |
 | Services/process record | Semantic HTML/CSS/SVG | Use only verified services and client-centered philosophy; no generic icons. |
 | Regional/team proof | Existing rasters + semantic copy | Verified landscape/team images and facts; spacious editorial sequencing. |
 | Paper/linen material | CSS + tiny inline SVG noise | Subtle subject-native material, bounded and decorative; content remains crisp. |

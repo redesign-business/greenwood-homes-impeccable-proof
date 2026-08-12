@@ -1,48 +1,3 @@
-const proofs = [
-  {
-    tab: "Established",
-    title: "Built on a long record.",
-    fact: "Since 1998",
-    body: "A licensed general contractor with offices in Nevada, Idaho, and Hawaii.",
-  },
-  {
-    tab: "Portfolio",
-    title: "The work is the evidence.",
-    fact: "50+ custom homes",
-    body: "A completed portfolio spanning Lake Tahoe, Idaho, and Hawaii.",
-  },
-  {
-    tab: "Craft",
-    title: "Recognized in the details.",
-    fact: "7 Tahoe Quarterly honors",
-    body: "Mountain Home, Craftsmanship, Legacy Home, and Interior Design recognition from 2014 through 2025.",
-  },
-  {
-    tab: "Trust",
-    title: "The experience holds up, too.",
-    fact: "12 client accounts",
-    body: "Clients repeatedly cite quality, communication, integrity, and care long after completion.",
-  },
-  {
-    tab: "Services",
-    title: "From first study to follow-through.",
-    fact: "6 connected services",
-    body: "Custom building, renovation, pre-construction, management, sustainability, and post-construction support.",
-  },
-  {
-    tab: "Team",
-    title: "People close to the work.",
-    fact: "Regional leadership",
-    body: "Project managers, superintendents, coordinators, and craftspeople working across Greenwood’s regions.",
-  },
-  {
-    tab: "Partnership",
-    title: "Built with you, not around you.",
-    fact: "Owner + architect + builder",
-    body: "Close collaboration through every phase, with lasting support after the keys change hands.",
-  },
-];
-
 const projects = [
   {
     name: "Cutting Edge Modern",
@@ -62,6 +17,16 @@ const projects = [
     image: "/images/proof-cabinet-hale-pakika.webp",
     href: "https://greenwood-homes.com/portfolio/hale_pakika/",
   },
+];
+
+const awards = [
+  { year: "2025", name: "Mountain Homes Award", href: "https://tahoequarterly.com/mountain-home-awards-2025/bringing-old-tahoe-style-into-the-light" },
+  { year: "2023", name: "Mountain Homes Award", href: "https://tahoequarterly.com/mountain-home-awards-2023/a-modern-take-on-mountain-charm" },
+  { year: "2021", name: "Craftsmanship Award", href: "https://tahoequarterly.com/mountain-home-awards-2021/in-harmony-with-the-hills" },
+  { year: "2019", name: "Mountain Legacy Home Award", href: "http://tahoequarterly.com/mountain-home-awards-2019/all-in-the-family-2" },
+  { year: "2015", name: "Mountain Classic Merit Award", href: "https://greenwood-homes.com/portfolio/mtn_estate/" },
+  { year: "2014", name: "Craftsmanship Award", detail: "Martis Camp Estate" },
+  { year: "2014", name: "Interior Design Award", href: "https://greenwood-homes.com/portfolio/austin_cabin/" },
 ];
 
 function Arrow() {
@@ -91,7 +56,7 @@ export default function Home() {
 
       <section className="hero" id="top" aria-labelledby="hero-title">
         <div className="headline-spine">
-          <p>Custom homes, professionally delivered.</p>
+          <p>Custom homes,<br />professionally delivered.</p>
           <h1 id="hero-title">Homes that hold their ground.</h1>
         </div>
 
@@ -109,20 +74,18 @@ export default function Home() {
         <span className="brass-pin right" aria-hidden="true" />
       </section>
 
-      <section className="proof-ledger" aria-labelledby="proof-title">
-        <div className="proof-ledger-heading">
-          <h2 id="proof-title">Seven reasons to build with Greenwood.</h2>
-          <p>Not promises in isolation—a connected record of completed work, capable people, and client trust.</p>
+      <section className="license-docket" aria-label="Greenwood Homes contractor licenses">
+        <div className="license-intro">
+          <span>Building since</span>
+          <strong>1998</strong>
         </div>
-        <div className="proof-ledger-list">
-          {proofs.map((proof, index) => (
-            <article key={proof.tab}>
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <div><h3>{proof.title}</h3><strong>{proof.fact}</strong></div>
-              <p>{proof.body}</p>
-            </article>
-          ))}
-        </div>
+        <dl>
+          <div><dt>California</dt><dd>844360</dd></div>
+          <div><dt>Nevada</dt><dd>75871</dd></div>
+          <div><dt>Hawaii</dt><dd>30129</dd></div>
+          <div><dt>Idaho</dt><dd>59886</dd></div>
+          <div><dt>Utah</dt><dd>14013486-5501</dd></div>
+        </dl>
       </section>
 
       <section className="portfolio" id="portfolio" aria-labelledby="portfolio-title">
@@ -138,6 +101,22 @@ export default function Home() {
               <span><b>{project.name}</b><small>{project.place}</small></span>
             </a>
           ))}
+        </div>
+      </section>
+
+      <section className="awards" aria-labelledby="awards-title">
+        <div className="awards-heading">
+          <img alt="Tahoe Quarterly" src="/images/tq-logo-med-ivory-c176412731.png" />
+          <h2 id="awards-title">The work, recognized.</h2>
+          <p>Seven Tahoe Quarterly honors across mountain homes, craftsmanship, legacy, and interior design.</p>
+        </div>
+        <div className="award-record">
+          {awards.map((award) => {
+            const content = <><span>{award.year}</span><strong>{award.name}</strong><small>{award.detail ?? "View awarded work"}</small><Arrow /></>;
+            return award.href
+              ? <a href={award.href} key={`${award.year}-${award.name}`}>{content}</a>
+              : <div key={`${award.year}-${award.name}`}>{content}</div>;
+          })}
         </div>
       </section>
 
