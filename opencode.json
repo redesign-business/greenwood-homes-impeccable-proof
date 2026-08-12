@@ -1,0 +1,83 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "enabled_providers": [
+    "vercel"
+  ],
+  "model": "vercel/deepseek/deepseek-v4-flash-0731",
+  "agent": {
+    "website": {
+      "model": "vercel/openai/gpt-5.6-sol",
+      "mode": "primary",
+      "steps": 30,
+      "permission": {
+        "read": {
+          "*": "deny",
+          "proof.md": "allow",
+          "app/page.tsx": "allow",
+          "app/layout.tsx": "allow",
+          "app/globals.css": "allow",
+          "package.json": "allow"
+        },
+        "edit": {
+          "*": "deny",
+          "app/page.tsx": "allow",
+          "app/layout.tsx": "allow",
+          "app/globals.css": "allow"
+        },
+        "glob": "deny",
+        "grep": "deny",
+        "list": "deny",
+        "bash": "deny",
+        "task": "deny",
+        "skill": "deny",
+        "webfetch": "deny",
+        "websearch": "deny",
+        "external_directory": "deny"
+      }
+    },
+    "repair": {
+      "model": "vercel/deepseek/deepseek-v4-flash-0731",
+      "mode": "primary",
+      "steps": 20,
+      "permission": {
+        "read": {
+          "*": "deny",
+          "package.json": "allow",
+          "app/page.tsx": "allow",
+          "app/layout.tsx": "allow",
+          "app/globals.css": "allow"
+        },
+        "edit": {
+          "*": "deny",
+          "app/page.tsx": "allow",
+          "app/layout.tsx": "allow",
+          "app/globals.css": "allow"
+        },
+        "glob": "deny",
+        "grep": "allow",
+        "list": "deny",
+        "bash": "deny",
+        "task": "deny",
+        "skill": "deny",
+        "webfetch": "deny",
+        "websearch": "deny",
+        "external_directory": "deny"
+      }
+    }
+  },
+  "provider": {
+    "vercel": {
+      "npm": "@ai-sdk/gateway",
+      "env": [
+        "AI_GATEWAY_API_KEY"
+      ],
+      "options": {
+        "apiKey": "{env:AI_GATEWAY_API_KEY}"
+      },
+      "models": {
+        "openai/gpt-5.6-sol": {},
+        "deepseek/deepseek-v4-flash-0731": {}
+      }
+    }
+  }
+}
