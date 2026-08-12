@@ -8,10 +8,10 @@ export const metadata: Metadata = {
 
 const directionContract = `
 THESIS: Greenwood’s promises are joined to visible evidence; the page refuses the generic luxury-gallery hero.
-OWN-WORLD: Charcoal drafting linen, warm paper, vellum proof leaves, brass pins, fired-clay action tabs, exact drafting lines, and full-color completed work.
-STORY: Visitors see an exceptional home, open seven kinds of proof, examine the portfolio and process, meet the team, then begin a project conversation.
-FIRST VIEWPORT: Warm top navigation above a monumental home photograph; a horizontal headline field and seven fanned proof leaves overlap the image; the active leaf carries the primary action.
-FORM: The Proof Cabinet, chosen from three Builder’s Pattern Book compositions; seed ba0d4e48.
+OWN-WORLD: Charcoal drafting linen, warm record paper, brass pins, fired-clay action tabs, fine rules, and full-color completed work.
+STORY: Visitors meet the offer through one exceptional home, inspect seven reasons to trust Greenwood, then examine the portfolio, process, team, and contact path.
+FIRST VIEWPORT: The original logo sits in a warm masthead above a wide charcoal thesis field and one monumental home photograph; the primary action pins their seam.
+FORM: A simplified Builder’s Pattern Book field derived from the approved Proof Cabinet; seed ba0d4e48.
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
 `;
 

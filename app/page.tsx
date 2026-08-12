@@ -1,7 +1,3 @@
-"use client";
-
-import { useState } from "react";
-
 const proofs = [
   {
     tab: "Established",
@@ -76,31 +72,12 @@ function Arrow() {
   );
 }
 
-function DetailDrawing() {
-  return (
-    <svg className="detail-drawing" aria-hidden="true" viewBox="0 0 240 360">
-      <g fill="none" stroke="currentColor">
-        <path d="M32 321V122l78-54 93 52v201M18 321h204M32 122h171M110 68v253M82 88l28 33 30-32M69 149h41M69 175h41M69 201h41M69 227h41M69 253h41" />
-        <path d="M140 120v201M169 120v201M203 120v201M110 149h93M110 201h93M110 253h93" strokeDasharray="4 5" />
-        <path d="M15 111h48M15 105v12M63 105v12M216 90v54M210 90h12M210 144h12" />
-      </g>
-      <g className="drawing-labels">
-        <text x="16" y="98">SITE / MATERIAL / DETAIL</text>
-        <text x="146" y="337">NOT TO SCALE</text>
-      </g>
-    </svg>
-  );
-}
-
 export default function Home() {
-  const [activeProof, setActiveProof] = useState(0);
-  const active = proofs[activeProof];
-
   return (
     <main>
       <header className="masthead">
         <a className="wordmark" href="#top" aria-label="Greenwood Homes, home">
-          Greenwood Homes
+          <img alt="Greenwood Homes" src="/images/gwhweblogo1020-4faa02ba82.png" />
         </a>
         <nav aria-label="Primary navigation">
           <a href="#portfolio">Portfolio</a>
@@ -120,56 +97,9 @@ export default function Home() {
 
         <div className="hero-photo" role="img" aria-label="Cutting Edge Modern custom home in Lake Tahoe" />
 
-        <div className="proof-cabinet" aria-label="Seven kinds of Greenwood Homes proof">
-          <div className="proof-tabs" role="tablist" aria-orientation="vertical">
-            {proofs.map((proof, index) => (
-              <button
-                aria-controls="proof-panel"
-                aria-selected={activeProof === index}
-                className={activeProof === index ? "active" : ""}
-                id={`proof-tab-${index}`}
-                key={proof.tab}
-                onClick={() => setActiveProof(index)}
-                onKeyDown={(event) => {
-                  const keys = ["ArrowDown", "ArrowRight", "ArrowUp", "ArrowLeft", "Home", "End"];
-                  if (!keys.includes(event.key)) return;
-                  event.preventDefault();
-                  const next = event.key === "Home"
-                    ? 0
-                    : event.key === "End"
-                      ? proofs.length - 1
-                      : (index + (event.key === "ArrowDown" || event.key === "ArrowRight" ? 1 : -1) + proofs.length) % proofs.length;
-                  setActiveProof(next);
-                  document.getElementById(`proof-tab-${next}`)?.focus();
-                }}
-                role="tab"
-                type="button"
-              >
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                {proof.tab}
-              </button>
-            ))}
-          </div>
-          <a className="hero-cta pinned" href="https://greenwood-homes.com/contact/">
-            Start a conversation <Arrow />
-          </a>
-          <div
-            aria-labelledby={`proof-tab-${activeProof}`}
-            className="proof-sheet"
-            id="proof-panel"
-            key={activeProof}
-            role="tabpanel"
-          >
-            <span className="brass-pin" aria-hidden="true" />
-            <div className="proof-copy">
-              <p className="proof-count">Proof {String(activeProof + 1).padStart(2, "0")} / 07</p>
-              <h2>{active.title}</h2>
-              <strong>{active.fact}</strong>
-              <p>{active.body}</p>
-            </div>
-            <DetailDrawing />
-          </div>
-        </div>
+        <a className="hero-cta pinned" href="https://greenwood-homes.com/contact/">
+          Start a conversation <Arrow />
+        </a>
       </section>
 
       <section className="testimony paper-sheet" aria-label="Client testimony">
@@ -177,6 +107,22 @@ export default function Home() {
         <blockquote>“We have built 5 homes over our lives, in Texas, Lake Tahoe and Hawaii, and our experience with Kevin was the best.”</blockquote>
         <a href="https://greenwood-homes.com/testimonials/">Read client accounts <Arrow /></a>
         <span className="brass-pin right" aria-hidden="true" />
+      </section>
+
+      <section className="proof-ledger" aria-labelledby="proof-title">
+        <div className="proof-ledger-heading">
+          <h2 id="proof-title">Seven reasons to build with Greenwood.</h2>
+          <p>Not promises in isolation—a connected record of completed work, capable people, and client trust.</p>
+        </div>
+        <div className="proof-ledger-list">
+          {proofs.map((proof, index) => (
+            <article key={proof.tab}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <div><h3>{proof.title}</h3><strong>{proof.fact}</strong></div>
+              <p>{proof.body}</p>
+            </article>
+          ))}
+        </div>
       </section>
 
       <section className="portfolio" id="portfolio" aria-labelledby="portfolio-title">
